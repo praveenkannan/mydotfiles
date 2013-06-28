@@ -45,7 +45,9 @@ alias lt='ls -lart'
    
 alias hisg='history|grep '
 
-alias code='cd /Users/pkannan/Documents/CommonEngine/SourceCodes/SDK/iOS'
+alias code='cd /Users/pkannan/Documents/CommonEngine/SourceCodes/SDK/iOS; ls -lrt;'
+alias spacechk='du -d 1 -m'
+alias ttrash='rm -rf /Users/pkannan/.Trash/*'
 
 #To auto select windows based on mouse move
 defaults write com.apple.terminal FocusFollowsMouse -string YES
