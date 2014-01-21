@@ -7,9 +7,6 @@ export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
 
 alias ff='find . -type f -name "*.php" -name "*.sh" -name "*.rb" -name "*.m" -name "*.h" -name "*.plist" -not -name "*svn-base*" | xargs grep 2>/dev/null'
 
-alias zoosrc='cd /Users/pkannan/Documents/DreamZoo/SourceCodes'
-alias zombiedev='ssh dev2-zombiesmash-mobile-01'
-
 ##
 # Your previous /Users/pkannan/.bash_profile file was backed up as /Users/pkannan/.bash_profile.macports-saved_2012-02-27_at_12:27:44
 ##
@@ -45,7 +42,7 @@ alias lt='ls -lart'
    
 alias hisg='history|grep '
 
-alias code='cd /Users/pkannan/Documents/CommonEngine/SourceCodes/SDK/iOS; ls -lrt;'
+alias code='cd /Users/praveenkannan/Code; ls -lrt;'
 alias spacechk='du -d 1 -m'
 alias ttrash='rm -rf /Users/pkannan/.Trash/*'
 
