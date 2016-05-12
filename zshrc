@@ -1,15 +1,94 @@
+# Path to your oh-my-zsh installation.
+export ZSH=$HOME/.oh-my-zsh
+
+# Set name of the theme to load.
+# Look in ~/.oh-my-zsh/themes/
+# Optionally, if you set this to "random", it'll load a random theme each
+# time that oh-my-zsh is loaded.
+ZSH_THEME="bullet-train"
+
+# Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
+
+# Uncomment the following line to use hyphen-insensitive completion. Case
+# sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
+
+# Uncomment the following line to disable bi-weekly auto-update checks.
+# DISABLE_AUTO_UPDATE="true"
+
+# Uncomment the following line to change how often to auto-update (in days).
+# export UPDATE_ZSH_DAYS=13
+
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
+
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
+
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+# COMPLETION_WAITING_DOTS="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# The optional three formats: "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# HIST_STAMPS="mm/dd/yyyy"
+
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
+
+# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
+# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(git)
+
+# User configuration
+
+export PATH=$HOME/bin:/usr/local/bin:$PATH
+# export MANPATH="/usr/local/man:$MANPATH"
+
+source $ZSH/oh-my-zsh.sh
+
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
+
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
+
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+# ssh
+# export SSH_KEY_PATH="~/.ssh/dsa_id"
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+
 CLASSPATH=$PATH:/home/automation/Documents/automation/RobotFramework/Java/bin:/home/automation/Documents/automation/robot/activation.jar:/home/automation/Documents/automation/robot/robot.jar:/home/automation/Documents/automation/robot/poi-3.6-20091214.jar:/home/automation/Documents/automation/robot/mail.jar:/home/automation/Documents/automation/robot/json.jar:/home/automation/Documents/automation/robot/jh.jar:/home/automation/Documents/automation/robot/ShapeSearchv1.jar
 
 export SVN_EDITOR=vim
-alias ls='ls -G'
-export CLICOLOR=1
-export LSCOLORS=gxBxhxDxfxhxhxhxhxcxcx
+#alias ls='ls -G'
 
 alias ff='find . -type f \( -name "*.php" -o -name "*.sh" -o -name "*.rb" -o  -name "*.m" -o -name "*.h" -o -name "*.plist" -o -name "*.java" \) | xargs grep 2>/dev/null'
-
-##
-# Your previous /Users/pkannan/.bash_profile file was backed up as /Users/pkannan/.bash_profile.macports-saved_2012-02-27_at_12:27:44
-##
 
 # MacPorts Installer addition on 2012-02-27_at_12:27:44: adding an appropriate PATH variable for use with MacPorts.
 export PATH=/usr/local/bin:/usr/local/Cellar:/opt/local/bin:/opt/local/sbin:$PATH
@@ -32,38 +111,16 @@ alias gr='git remote -v'
 alias gt='git'
 alias glg='git log --date-order --all --graph --format="%C(green)%h%Creset %C(yellow)%an%Creset %C(blue bold)%ar%Creset %C(red bold)%d%Creset%s"'
 alias glg1='git log --date-order --all --graph --name-status --format="%C(green)%h%Creset %C(yellow)%an%Creset %C(blue bold)%ar%Creset %C(red bold)%d%Creset%s"'
-#source /Users/praveenkannan/Code/myCommandLineUtils/git-completion.bash
-
-# To show how many commits you are ahead or behind of the remote the branch it syncs to, in command prompt
-function ahead_behind {
-    curr_branch=$(git rev-parse --abbrev-ref HEAD);
-    curr_remote=$(git config branch.$curr_branch.remote);
-    curr_merge_branch=$(git config branch.$curr_branch.merge | cut -d / -f 3);
-    git rev-list --left-right --count $curr_branch...$curr_remote/$curr_merge_branch | tr -s '\t' '|';
-}
-export PS1="\h:\w[\$(ahead_behind)]$"
-
-# http://henrik.nyh.se/2008/12/git-dirty-prompt
-# http://www.simplisticcomplexity.com/2008/03/13/show-your-git-branch-name-in-your-prompt/
-#   username@Machine ~/dev/dir[master]$   # clean working directory
-#   username@Machine ~/dev/dir[master*]$  # dirty working directory
- 
-function parse_git_dirty {
-  [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]] && echo "*"
-}
-function parse_git_branch {
-  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1$(parse_git_dirty)]/"
-}
-export PS1='\u@\h \[\033[1;33m\]\w\[\033[0m\]$(parse_git_branch)$ '
 
 ## Colorize the grep command output for ease of use (good for log files)##
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
+
 ## wish this was built in listing functionality
 alias ll='ls -l'
 alias lt='ls -lart'
-   
+
 alias hisg='history|grep '
 
 alias spacechk='du -d 1 -m'
@@ -74,13 +131,6 @@ defaults write com.apple.terminal FocusFollowsMouse -string YES
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
-##
-# Your previous /Users/pkannan/.bash_profile file was backed up as /Users/pkannan/.bash_profile.macports-saved_2012-08-15_at_17:16:24
-##
-
-# MacPorts Installer addition on 2012-08-15_at_17:16:24: adding an appropriate PATH variable for use with MacPorts.
-export PATH=/opt/local/bin:/opt/local/sbin:$PATH
-# Finished adapting your PATH environment variable for use with MacPorts.
 
 # up 4 -> go up 4 directories
 up()
@@ -142,7 +192,7 @@ export ANEMONE_CONFIG=/Users/praveenkannan/anemone_config
 #IRIS_CONFIG=path/to/iris/config/file (see template below)
 export HADOOP=/Users/praveenkannan/Code/ayasdi/utilities/deploy/hadoop/files/hadoop/cdh/hadoop/bin
 alias eclipse='/Applications/eclipse/eclipse -vmargs -Xms2g -Xmx4g'
-#source /Users/praveenkannan/Code/ayasdi/arcanist/resources/shell/bash-completion
+source /Users/praveenkannan/Code/ayasdi/arcanist/resources/shell/bash-completion
 
 #########
 # SCALA #
@@ -180,3 +230,4 @@ export PATH="/Applications/anaconda/bin:$PATH"
 ## Support for Anaconda
 ######
 export ANACONDAPATH="/Applications/anaconda/bin"
+export AYASDI_APISERVER="2b"
