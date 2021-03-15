@@ -169,30 +169,13 @@ cat() {
     [[ -n $colored ]] && echo "$colored" || echo "$out"
 }
 
-export JAVA_HOME=`/usr/libexec/java_home -v 1.7`
-export JYTHON_HOME=/usr/local/Cellar/jython/2.5.3/libexec/
-
 ### Work Specific ###
-export PATH=/usr/local/bin/postgresql:/Users/praveenkannan/Code/ayasdi/arcanist/bin:/Users/praveenkannan/Code/ayasdi/utilities/deploy/hadoop/files/hadoop/cdh/hbase/bin:$PATH
-export PGDATA=~/postgres/data
-export EDITOR=vim
 
-alias code='cd /Users/praveenkannan/Code/ayasdi; ls -lrt;'
-alias runlhost='pushd /Users/praveenkannan/Code/ayasdi > /dev/null; pushd localscripts/; ./runlhost.sh > /dev/null; popd; popd;'
-alias updatecode='pushd /Users/praveenkannan/Code/ayasdi > /dev/null; pushd localscripts/; ./updatecode.sh > /dev/null; popd; popd;'
-alias runadmin='pushd /Users/praveenkannan/Code/ayasdi/backend/useradmin > /dev/null; node app; popd;'
+alias code='cd /Users/praveenkannan/Code/; ls -lrt;'
 alias startpg='pg_ctl -l postgres.log start'
 alias stoppg='pg_ctl stop'
 alias ppsql='psql dagdb -c "$@"'
-
-export JYTHONPATH=$JYTHONPATH:/Users/praveenkannan/Code/ayasdi/automaton/
-#IRIS_CLIENT=/path/to/iris/client.jar e.g. /Applications/Iris/jar/Client.jar
-export ANEMONE_CLIENT=/Users/praveenkannan/Code/ayasdi/frontend/jar/Client.jar
-export ANEMONE_CONFIG=/Users/praveenkannan/anemone_config
-#IRIS_CONFIG=path/to/iris/config/file (see template below)
-export HADOOP=/Users/praveenkannan/Code/ayasdi/utilities/deploy/hadoop/files/hadoop/cdh/hadoop/bin
 alias eclipse='/Applications/eclipse/eclipse -vmargs -Xms2g -Xmx4g'
-source /Users/praveenkannan/Code/ayasdi/arcanist/resources/shell/bash-completion
 
 #########
 # SCALA #
@@ -202,32 +185,13 @@ export PATH=$PATH:$SCALA_HOME/bin
 
 archey -c
 
-
 ############
 # Mongo DB #
 ############
 export PATH=$PATH:/Applications/mongodb/bin
 alias m101j='cd /Users/praveenkannan/Documents/MongoDB Univ'
 
-############
-### TDAC ###
-############
-export DYLD_LIBRARY_PATH=/Users/praveenkannan/Code/ayasdi/tdac/dep/lib/darwin/mkl:$DYLD_LIBRARY_PATH
-
-
 #################
 ### for YARN ####
 #################
 export M2_REPO=~/.m2/
-
-# added by Anaconda 2.1.0 installer
-export PATH="/Users/praveenkannan/anaconda/bin:$PATH"
-
-# added by Anaconda 2.1.0 installer
-export PATH="/Applications/anaconda/bin:$PATH"
-
-######
-## Support for Anaconda
-######
-export ANACONDAPATH="/Applications/anaconda/bin"
-export AYASDI_APISERVER="2b"
